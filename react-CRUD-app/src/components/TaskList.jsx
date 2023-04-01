@@ -2,7 +2,7 @@ import React from 'react'
 import TaskItem from './TaskItem'
 import styles from './TaskList.module.css'
 
-const TaskList = ({tasks, deleteTask, updateChecked}) => {
+const TaskList = ({tasks, deleteTask, updateChecked, enterEditMode}) => {
   return (
     <ul className={styles.tasks}>
         {
@@ -12,6 +12,7 @@ const TaskList = ({tasks, deleteTask, updateChecked}) => {
                  task={task}
                  deleteTask={deleteTask}
                  updateChecked={updateChecked}
+                 enterEditMode={enterEditMode}
                  />
             ))
         }
