@@ -8,6 +8,7 @@ function App() {
   const [tasks, setTasks] = useState([])
   const [editedTask, setEditetTask] = useState(null)
   const [isEditing, setIsEditing] = useState(false)
+  const [previousFocusEl, setPreviousFocusEl] = useState(null)
 
   const addTask = (task) => {
     setTasks(prevState => [...prevState, task])
@@ -30,14 +31,20 @@ function App() {
       t.id === task.id ? {...t, name: task.name} : t
     )))
 
-    setIsEditing(false)
+    closeEditMode()
     
+  }
+  const closeEditMode = () => {
+    setIsEditing(false)
+    previousFocusEl.focus();
   }
   const enterEditMode = (task) => {
     setEditetTask(task)
     setIsEditing(true)
+    setPreviousFocusEl(document.activeElement)
   }
-  
+
+ 
 
   return (
     <div className="container">
@@ -49,6 +56,7 @@ function App() {
         (<EditForm
         editedTask={editedTask}
         handleUpdateTask={handleUpdateTask}
+        closeEditMode={closeEditMode}
         />)
       }
       
