@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import styles from './TaskList.module.css'
 import { CheckIcon } from '@heroicons/react/24/outline'
+import { PencilSquareIcon } from '@heroicons/react/24/outline'
+import { TrashIcon } from '@heroicons/react/24/outline'
+
+
 const TaskItem = ({task}) => {
     const [isChecked, setIsChecked] = useState(task.checked)
 
@@ -28,6 +32,22 @@ const TaskItem = ({task}) => {
                 </p>
             </label>
 
+        </div>
+        <div className={styles["task-group"]}>
+            <button
+                className='btn'
+                aria-label={`Update ${task.name} Task`}
+                //onClick={}
+            >
+                <PencilSquareIcon  width={24} height={24}/>
+            </button>
+            <button
+                className={`btn ${styles.delete}`}
+                aria-label={`Delete ${task.name} Task`}
+                //onClick={}
+            >
+                <TrashIcon  width={24} height={24}/>
+            </button>
         </div>
         
     </li>
