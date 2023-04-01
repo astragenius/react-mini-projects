@@ -8,6 +8,18 @@ function App() {
   const addTask = (task) => {
     setTasks(prevState => [...prevState, task])
   }
+  const deleteTask = (id) => {
+    
+    setTasks(
+      tasks.filter((task) => task.id !== id)
+    )
+  }
+  const updateChecked = (id) => {
+    setTasks(prevState => prevState.map(task => (
+      task.id === id ? {...task, checked: !task.checked} : task
+    )))
+    
+  }
   
 
   return (
@@ -16,7 +28,12 @@ function App() {
         <h1>My Task list</h1>
       </header>
      <CustomForm addTask={addTask}/>
-     {tasks && <TaskList tasks={tasks}/>}
+     {tasks && 
+     <TaskList 
+     tasks={tasks} 
+     deleteTask={deleteTask}
+     updateChecked={updateChecked}
+     />}
     </div>
   )
 }
