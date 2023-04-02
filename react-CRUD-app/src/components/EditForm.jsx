@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { PlusIcon } from '@heroicons/react/24/solid'
 import { CheckIcon } from '@heroicons/react/24/outline'
 
 const EditForm = ({editedTask, handleUpdateTask, closeEditMode}) => {
