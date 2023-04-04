@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Link, NavLink, createBrowserRouter, creat
 import Home from './pages/Home'
 import About from './pages/About'
 import RootLayout from './layouts/RootLayout';
+import HelpLayout from './layouts/HelpLayout';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -9,6 +10,10 @@ const router = createBrowserRouter(
     <Route path='/' element={<RootLayout/>}>
       <Route index element={<Home/>}/>
       <Route path='/about' element={<About/>}/>
+      <Route path='help' element={<HelpLayout/>}>
+        <Route path='faq'/>
+        <Route path='contact'/>
+      </Route>
     </Route>
     
   )
