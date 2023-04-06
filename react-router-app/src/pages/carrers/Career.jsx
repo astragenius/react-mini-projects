@@ -24,6 +24,9 @@ export const carrersLoader = async () => {
    
    
     const res = await fetch('http://localhost:4000/careers')
+    if(!res.ok) {
+        throw Error('could not Fetch careers')
+    }
    
     return res.json()
 }
