@@ -8,6 +8,7 @@ import Contact from './pages/help/Contact';
 import NotFound from './pages/help/NotFound';
 import CareersLayout from './layouts/CareersLayout';
 import Career, { carrersLoader } from './pages/carrers/Career';
+import CareerDetails, { careerDetailsLoader } from './pages/carrers/CareerDetails';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +26,11 @@ const router = createBrowserRouter(
         index 
         element={<Career/>}
         loader={carrersLoader}
+        />
+        <Route
+          path=':id'
+          element={<CareerDetails/>}
+          loader={careerDetailsLoader}
         />
       </Route>
 
